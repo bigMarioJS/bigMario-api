@@ -35,7 +35,10 @@ exports.create = async (req, res, next) => {
 
 exports.getPast24Hours = async (req, res, next) => {
   const data = await SensorData.getPast24Hours(req.query);
-
   res.send(data);
 };
 
+exports.last = async (req, res, next) => {
+  const data = await SensorData.last(req.query);
+  res.send(data);
+};

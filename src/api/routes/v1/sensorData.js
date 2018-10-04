@@ -18,7 +18,11 @@ router
 
 router
   .route('/getpast24hours')
-  .get(authorize(), controller.getPast24Hours);
+  .get(authorize(), controller.getPast24Hours);router
+
+router
+  .route('/last')
+  .get(authorize(), controller.last);
 
 
 module.exports = router;

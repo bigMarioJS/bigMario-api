@@ -21,7 +21,15 @@ if (env === 'development') {
 * @returns {object} Mongoose connection
 * @public
 */
+
+console.log(`mongodb+srv://${mongo.user}:${mongo.password}@${mongo.uri}`)
 exports.connect = () => {
-  mongoose.connect(mongo.uri);
+  mongoose.connect(
+    `mongodb+srv://${mongo.user}:${mongo.password}@${mongo.uri}`,
+    {
+      dbName: mongo.dbName,
+      useNewUrlParser: true
+    }
+  );
   return mongoose.connection;
 };

@@ -71,6 +71,8 @@ sensorDataSchema.method({
     return transformed;
   },
 
+
+
   // token() {
   //   const playload = {
   //     exp: moment().add(jwtExpirationInterval, 'minutes').unix(),
@@ -89,10 +91,14 @@ sensorDataSchema.method({
  * Statics
  */
 sensorDataSchema.statics = {
-
+  // TODO: Extended JSON???
 
   getPast24Hours() {
     return this.find({ recordedAt: { $gt: new Date(Date.now() - 24 * 60 * 60 * 1000) } });
+  },
+
+  last() {
+    return this.find().limit(1).sort({ $natural: -1 });
   },
 
 };
